@@ -1,14 +1,16 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
+if(!isset($_SESSION['username'])){
     header("location: login.php");
+
 } else {
-    if ($_SESSION['usertype'] === 'student') {
-        header("location: studenthome.php");
+    if($_SESSION['usertype']==='admin'){
+        header("location: adminhome.php"); 
     }
 }
-?>
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,25 +32,13 @@ if (!isset($_SESSION['username'])) {
         <aside class="bg-blue-950 w-[16%] min-h-[calc(100vh-70px)]">
             <ul class="p-3 text-center pt-14">
                 <li class="list-none pb-[30px] text-lg text-white font-bold">
-                    <a href="admission.php" class="hover:underline">Admission</a>
+                    <a href="student_profile.php" class="hover:underline">My Profile</a>
                 </li>
                 <li class="list-none pb-[30px] text-lg text-white font-bold">
-                    <a href="add_student.php" class="hover:underline">Add Student</a>
+                    <a href="my_course.php" class="hover:underline">My Course</a>
                 </li>
                 <li class="list-none pb-[30px] text-lg text-white font-bold">
-                    <a href="all_student.php" class="hover:underline">View Student</a>
-                </li>
-                <li class="list-none pb-[30px] text-lg text-white font-bold">
-                    <a href="add_teacher.php" class="hover:underline">Add Teacher</a>
-                </li>
-                <li class="list-none pb-[30px] text-lg text-white font-bold">
-                    <a href="all_teachers.php" class="hover:underline">View Teacher</a>
-                </li>
-                <li class="list-none pb-[30px] text-lg text-white font-bold">
-                    <a href="" class="hover:underline">Add Course</a>
-                </li>
-                <li class="list-none pb-[30px] text-lg text-white font-bold">
-                    <a href="" class="hover:underline">View Course</a>
+                    <a href="my_result.php" class="hover:underline">My Result</a>
                 </li>
             </ul>
         </aside>

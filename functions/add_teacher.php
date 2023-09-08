@@ -16,11 +16,14 @@ if ($data === false) {
 }
 
 if(isset($_POST['add'])){
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $password = $_POST['password'];
-    $sqlCheck = "SELECT * FROM user WHERE username = '$username'";
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $file = $_FILES['image']['name'];
+    $dst = "../image/".$file;
+    $dst_db = "image/".$file;
+    move_uploaded_file($_FILES['image']['tmp_name'],$dst);
+
+    $sqlCheck = "SELECT * FROM teacher WHERE name = '$name'";
     $check = mysqli_query($data, $sqlCheck);
 
     $count= mysqli_num_rows($check);
@@ -29,13 +32,13 @@ if(isset($_POST['add'])){
         function goTo(){
             window.history.back()
         }
-        alert('User already exist', goTo());
+        alert('Teacher already exist', goTo());
         </script>";
     } else {
-        $sql = "INSERT INTO user(username,phone,email,usertype,password) VALUES ('$username', '$phone', '$email', 'student', '$password')";
+        $sql = "INSERT INTO teacher(name,description,image) VALUES ('$name', '$description', '$dst_db')";
         $result = mysqli_query($data, $sql);
         if($result){
-            header('location: /student-management/all_students.php');
+            header('location: /student-management/all_teachers.php');
 
         }
     }
