@@ -75,7 +75,7 @@
     <section class="px-5 md:px-10 py-14">
         <h1 class="text-3xl font-semibold mb-5 text-center">Admission Form</h1>
 
-        <form class="w-[300px] m-auto">
+        <form class="w-[300px] m-auto" action="./functions/admission.php" method="post">
             <div class="mb-3">
                 <label class="font-semibold block mb-1">Name</label>
                 <input class="w-full border border-gray-400 rounded-md px-5 py-2" type="text" name="name" />
@@ -93,7 +93,7 @@
                 <textarea class="w-full min-h-[100px] border border-gray-400 rounded-md px-5 py-2" name="message"></textarea>
             </div>
             <div class="text-center mt-3">
-                <input class="px-3 py-1 text-white font-semibold bg-blue-700 rounded-lg" type="submit"/>
+                <input class="px-3 py-1 text-white font-semibold bg-blue-700 rounded-lg cursor-pointer" type="submit" value="Apply" name="apply"/>
             </div>
         </form>
     </section>
